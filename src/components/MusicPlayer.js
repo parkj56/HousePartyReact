@@ -5,10 +5,10 @@ import {
   Card,
   IconButton,
   LinearProgress,
-} from "@material-ui/core";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import PauseIcon from "@material-ui/icons/Pause";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+} from "@mui/material";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PauseIcon from "@mui/icons-material/Pause";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 export default class MusicPlayer extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export default class MusicPlayer extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     };
-    fetch("/spotify/skip", requestOptions);
+    fetch("http://127.0.0.1:8000/spotify/skip", requestOptions);
   }
 
   pauseSong() {
@@ -28,7 +28,7 @@ export default class MusicPlayer extends Component {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     };
-    fetch("/spotify/pause", requestOptions);
+    fetch("http://127.0.0.1:8000/spotify/pause", requestOptions);
   }
 
   playSong() {
@@ -36,7 +36,7 @@ export default class MusicPlayer extends Component {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
     };
-    fetch("/spotify/play", requestOptions);
+    fetch("http://127.0.0.1:8000/spotify/play", requestOptions);
   }
 
   render() {

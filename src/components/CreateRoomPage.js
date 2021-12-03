@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
 import { Link } from "react-router-dom";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { Collapse } from "@material-ui/core";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { Collapse } from "@mui/material/";
 import Alert from "@material-ui/lab/Alert";
 
 export default class CreateRoomPage extends Component {
@@ -57,7 +57,7 @@ export default class CreateRoomPage extends Component {
         guest_can_pause: this.state.guestCanPause,
       }),
     };
-    fetch("/api/create-room", requestOptions)
+    fetch("http://127.0.0.1:8000/api/create-room", requestOptions)
       .then((response) => response.json())
       .then((data) => this.props.history.push("/room/" + data.code));
   }
@@ -72,7 +72,7 @@ export default class CreateRoomPage extends Component {
         code: this.props.roomCode,
       }),
     };
-    fetch("/api/update-room", requestOptions).then((response) => {
+    fetch("http://127.0.0.1:8000/api/update-room", requestOptions).then((response) => {
       if (response.ok) {
         this.setState({
           successMsg: "Room updated successfully!",
@@ -198,7 +198,7 @@ export default class CreateRoomPage extends Component {
             </FormHelperText>
           </FormControl>
         </Grid>
-        {this.props.update
+        {this.state.update
           ? this.renderUpdateButtons()
           : this.renderCreateButtons()}
       </Grid>

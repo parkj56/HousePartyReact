@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import HomePage from "./HomePage";
+import './App.css'
 
 export default class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="center">
+      <div className="center background-color-changer">
         <HomePage />
       </div>
     );
